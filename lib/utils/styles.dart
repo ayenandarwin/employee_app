@@ -8,10 +8,15 @@ class Styles {
       fontSize: 16, color: Colors.black, fontWeight: FontWeight.bold);
   static TextStyle headerWhitStyle = const TextStyle(
       fontSize: 16, color: Colors.white, fontWeight: FontWeight.bold);
+  static TextStyle headerNormalStyle = const TextStyle(
+    fontSize: 16,
+    color: Colors.black,
+  );
   static TextStyle subtitleStyle = const TextStyle(
     fontSize: 14,
     color: Colors.black,
   );
+
   static TextStyle announcementTextStyle = const TextStyle(
     fontSize: 15,
     fontWeight: FontWeight.w500,

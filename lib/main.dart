@@ -5,7 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get/get.dart';
 
 void main() {
-   runApp(ProviderScope(
+  runApp(ProviderScope(
     child: MyApp(),
   ));
 //  runApp(const MyApp());

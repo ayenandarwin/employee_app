@@ -8,25 +8,13 @@ class APIURL {
   //static const String mainUrl = "https://www.sarpaynantaw.com/api";
   static const String mainUrl = "http://staging.myanants.com/api";
 
-  //static const String mainUrlForUri = "https://newbr.icgwebdevelopment.com";
-  static const String mainUrlForUri = "https://www.sarpaynantaw.com";
-
-  //Contact
-  static const String contactUrl = "$mainUrl/contact";
-
   //Joker App Play Store Link
   static const String playStoreLink =
       "https://play.google.com/store/apps/details?id=com.lucky.seven_mm";
 
   //Auth
   static const String loginUrl = "$mainUrl/employee/login";
-  static const String exchangeRate = "$mainUrl/v1/exchange-rates";
-  static const String fromTo = "$mainUrl/v1/from-to?from=CNY&to=MMK";
-  static const String payChannel = "$mainUrl/v1/pay-channel";
-  static const String payChannelTransfer = "$mainUrl/v1/transfer/pay-channel";
-  static const String payChannelReceive = "$mainUrl/v1/transfer/pay-channel";
-  static const String payChannelDetail = "$mainUrl/v1/pay-channel-detail?id=";
-  static const String branches = "$mainUrl/v1/branches";
+  static const String tasks = "http://staging.myanants.com/api/employee/tasks";
 
   static const String profileUrl = "$mainUrl/v1/profile";
   static const String passwordResetUrl = "$mainUrl/delimens/changepassword";

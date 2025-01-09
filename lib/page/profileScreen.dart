@@ -35,7 +35,8 @@ class _ProfilescreenState extends State<Profilescreen> {
                   builder: (context) {
                     return Container(
                         height: 200,
-                        child: Column(
+                        child: 
+                        Column(
                           children: [
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
