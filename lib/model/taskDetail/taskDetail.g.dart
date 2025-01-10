@@ -1,12 +1,13 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'tasks.dart';
+part of 'taskDetail.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$TasksImpl _$$TasksImplFromJson(Map<String, dynamic> json) => _$TasksImpl(
+_$TaskDetailsImpl _$$TaskDetailsImplFromJson(Map<String, dynamic> json) =>
+    _$TaskDetailsImpl(
       (json['id'] as num?)?.toInt(),
       (json['customer_id'] as num?)?.toInt(),
       json['created_by'] as String?,
@@ -17,12 +18,12 @@ _$TasksImpl _$$TasksImplFromJson(Map<String, dynamic> json) => _$TasksImpl(
       json['updated_at'] as String?,
       (json['service_charges'] as num?)?.toInt(),
       (json['order_items'] as List<dynamic>)
-          .map((e) => OrderItems.fromJson(e as Map<String, dynamic>))
+          .map((e) => OrderItemDetails.fromJson(e as Map<String, dynamic>))
           .toList(),
       Customer.fromJson(json['customer'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$TasksImplToJson(_$TasksImpl instance) =>
+Map<String, dynamic> _$$TaskDetailsImplToJson(_$TaskDetailsImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'customer_id': instance.customer_id,

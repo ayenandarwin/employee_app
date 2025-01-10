@@ -34,7 +34,7 @@ class OrderItems with _$OrderItems {
     int? checkout_counts,
     int? completed_counts,
     Service? service,
-    //Period? period,
+    Period? period,
 
 
   ) = _OrderItems;

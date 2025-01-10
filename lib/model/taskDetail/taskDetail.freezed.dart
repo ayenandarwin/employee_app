@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'tasks.dart';
+part of 'taskDetail.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,12 +14,12 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-Tasks _$TasksFromJson(Map<String, dynamic> json) {
-  return _Tasks.fromJson(json);
+TaskDetails _$TaskDetailsFromJson(Map<String, dynamic> json) {
+  return _TaskDetails.fromJson(json);
 }
 
 /// @nodoc
-mixin _$Tasks {
+mixin _$TaskDetails {
   int? get id => throw _privateConstructorUsedError;
   int? get customer_id => throw _privateConstructorUsedError;
   String? get created_by => throw _privateConstructorUsedError;
@@ -29,22 +29,24 @@ mixin _$Tasks {
   String? get created_at => throw _privateConstructorUsedError;
   String? get updated_at => throw _privateConstructorUsedError;
   int? get service_charges => throw _privateConstructorUsedError;
-  List<OrderItems> get order_items => throw _privateConstructorUsedError;
+  List<OrderItemDetails> get order_items => throw _privateConstructorUsedError;
   Customer get customer => throw _privateConstructorUsedError;
 
-  /// Serializes this Tasks to a JSON map.
+  /// Serializes this TaskDetails to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 
-  /// Create a copy of Tasks
+  /// Create a copy of TaskDetails
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $TasksCopyWith<Tasks> get copyWith => throw _privateConstructorUsedError;
+  $TaskDetailsCopyWith<TaskDetails> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $TasksCopyWith<$Res> {
-  factory $TasksCopyWith(Tasks value, $Res Function(Tasks) then) =
-      _$TasksCopyWithImpl<$Res, Tasks>;
+abstract class $TaskDetailsCopyWith<$Res> {
+  factory $TaskDetailsCopyWith(
+          TaskDetails value, $Res Function(TaskDetails) then) =
+      _$TaskDetailsCopyWithImpl<$Res, TaskDetails>;
   @useResult
   $Res call(
       {int? id,
@@ -56,23 +58,23 @@ abstract class $TasksCopyWith<$Res> {
       String? created_at,
       String? updated_at,
       int? service_charges,
-      List<OrderItems> order_items,
+      List<OrderItemDetails> order_items,
       Customer customer});
 
   $CustomerCopyWith<$Res> get customer;
 }
 
 /// @nodoc
-class _$TasksCopyWithImpl<$Res, $Val extends Tasks>
-    implements $TasksCopyWith<$Res> {
-  _$TasksCopyWithImpl(this._value, this._then);
+class _$TaskDetailsCopyWithImpl<$Res, $Val extends TaskDetails>
+    implements $TaskDetailsCopyWith<$Res> {
+  _$TaskDetailsCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of Tasks
+  /// Create a copy of TaskDetails
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -129,7 +131,7 @@ class _$TasksCopyWithImpl<$Res, $Val extends Tasks>
       order_items: null == order_items
           ? _value.order_items
           : order_items // ignore: cast_nullable_to_non_nullable
-              as List<OrderItems>,
+              as List<OrderItemDetails>,
       customer: null == customer
           ? _value.customer
           : customer // ignore: cast_nullable_to_non_nullable
@@ -137,7 +139,7 @@ class _$TasksCopyWithImpl<$Res, $Val extends Tasks>
     ) as $Val);
   }
 
-  /// Create a copy of Tasks
+  /// Create a copy of TaskDetails
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
@@ -149,10 +151,11 @@ class _$TasksCopyWithImpl<$Res, $Val extends Tasks>
 }
 
 /// @nodoc
-abstract class _$$TasksImplCopyWith<$Res> implements $TasksCopyWith<$Res> {
-  factory _$$TasksImplCopyWith(
-          _$TasksImpl value, $Res Function(_$TasksImpl) then) =
-      __$$TasksImplCopyWithImpl<$Res>;
+abstract class _$$TaskDetailsImplCopyWith<$Res>
+    implements $TaskDetailsCopyWith<$Res> {
+  factory _$$TaskDetailsImplCopyWith(
+          _$TaskDetailsImpl value, $Res Function(_$TaskDetailsImpl) then) =
+      __$$TaskDetailsImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -165,7 +168,7 @@ abstract class _$$TasksImplCopyWith<$Res> implements $TasksCopyWith<$Res> {
       String? created_at,
       String? updated_at,
       int? service_charges,
-      List<OrderItems> order_items,
+      List<OrderItemDetails> order_items,
       Customer customer});
 
   @override
@@ -173,14 +176,14 @@ abstract class _$$TasksImplCopyWith<$Res> implements $TasksCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$TasksImplCopyWithImpl<$Res>
-    extends _$TasksCopyWithImpl<$Res, _$TasksImpl>
-    implements _$$TasksImplCopyWith<$Res> {
-  __$$TasksImplCopyWithImpl(
-      _$TasksImpl _value, $Res Function(_$TasksImpl) _then)
+class __$$TaskDetailsImplCopyWithImpl<$Res>
+    extends _$TaskDetailsCopyWithImpl<$Res, _$TaskDetailsImpl>
+    implements _$$TaskDetailsImplCopyWith<$Res> {
+  __$$TaskDetailsImplCopyWithImpl(
+      _$TaskDetailsImpl _value, $Res Function(_$TaskDetailsImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of Tasks
+  /// Create a copy of TaskDetails
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -197,7 +200,7 @@ class __$$TasksImplCopyWithImpl<$Res>
     Object? order_items = null,
     Object? customer = null,
   }) {
-    return _then(_$TasksImpl(
+    return _then(_$TaskDetailsImpl(
       freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -237,7 +240,7 @@ class __$$TasksImplCopyWithImpl<$Res>
       null == order_items
           ? _value._order_items
           : order_items // ignore: cast_nullable_to_non_nullable
-              as List<OrderItems>,
+              as List<OrderItemDetails>,
       null == customer
           ? _value.customer
           : customer // ignore: cast_nullable_to_non_nullable
@@ -248,8 +251,8 @@ class __$$TasksImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$TasksImpl implements _Tasks {
-  const _$TasksImpl(
+class _$TaskDetailsImpl implements _TaskDetails {
+  const _$TaskDetailsImpl(
       this.id,
       this.customer_id,
       this.created_by,
@@ -259,12 +262,12 @@ class _$TasksImpl implements _Tasks {
       this.created_at,
       this.updated_at,
       this.service_charges,
-      final List<OrderItems> order_items,
+      final List<OrderItemDetails> order_items,
       this.customer)
       : _order_items = order_items;
 
-  factory _$TasksImpl.fromJson(Map<String, dynamic> json) =>
-      _$$TasksImplFromJson(json);
+  factory _$TaskDetailsImpl.fromJson(Map<String, dynamic> json) =>
+      _$$TaskDetailsImplFromJson(json);
 
   @override
   final int? id;
@@ -284,9 +287,9 @@ class _$TasksImpl implements _Tasks {
   final String? updated_at;
   @override
   final int? service_charges;
-  final List<OrderItems> _order_items;
+  final List<OrderItemDetails> _order_items;
   @override
-  List<OrderItems> get order_items {
+  List<OrderItemDetails> get order_items {
     if (_order_items is EqualUnmodifiableListView) return _order_items;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_order_items);
@@ -297,14 +300,14 @@ class _$TasksImpl implements _Tasks {
 
   @override
   String toString() {
-    return 'Tasks(id: $id, customer_id: $customer_id, created_by: $created_by, total_price: $total_price, payment_method: $payment_method, status: $status, created_at: $created_at, updated_at: $updated_at, service_charges: $service_charges, order_items: $order_items, customer: $customer)';
+    return 'TaskDetails(id: $id, customer_id: $customer_id, created_by: $created_by, total_price: $total_price, payment_method: $payment_method, status: $status, created_at: $created_at, updated_at: $updated_at, service_charges: $service_charges, order_items: $order_items, customer: $customer)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$TasksImpl &&
+            other is _$TaskDetailsImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.customer_id, customer_id) ||
                 other.customer_id == customer_id) &&
@@ -343,24 +346,24 @@ class _$TasksImpl implements _Tasks {
       const DeepCollectionEquality().hash(_order_items),
       customer);
 
-  /// Create a copy of Tasks
+  /// Create a copy of TaskDetails
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$TasksImplCopyWith<_$TasksImpl> get copyWith =>
-      __$$TasksImplCopyWithImpl<_$TasksImpl>(this, _$identity);
+  _$$TaskDetailsImplCopyWith<_$TaskDetailsImpl> get copyWith =>
+      __$$TaskDetailsImplCopyWithImpl<_$TaskDetailsImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$TasksImplToJson(
+    return _$$TaskDetailsImplToJson(
       this,
     );
   }
 }
 
-abstract class _Tasks implements Tasks {
-  const factory _Tasks(
+abstract class _TaskDetails implements TaskDetails {
+  const factory _TaskDetails(
       final int? id,
       final int? customer_id,
       final String? created_by,
@@ -370,10 +373,11 @@ abstract class _Tasks implements Tasks {
       final String? created_at,
       final String? updated_at,
       final int? service_charges,
-      final List<OrderItems> order_items,
-      final Customer customer) = _$TasksImpl;
+      final List<OrderItemDetails> order_items,
+      final Customer customer) = _$TaskDetailsImpl;
 
-  factory _Tasks.fromJson(Map<String, dynamic> json) = _$TasksImpl.fromJson;
+  factory _TaskDetails.fromJson(Map<String, dynamic> json) =
+      _$TaskDetailsImpl.fromJson;
 
   @override
   int? get id;
@@ -394,14 +398,14 @@ abstract class _Tasks implements Tasks {
   @override
   int? get service_charges;
   @override
-  List<OrderItems> get order_items;
+  List<OrderItemDetails> get order_items;
   @override
   Customer get customer;
 
-  /// Create a copy of Tasks
+  /// Create a copy of TaskDetails
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$TasksImplCopyWith<_$TasksImpl> get copyWith =>
+  _$$TaskDetailsImplCopyWith<_$TaskDetailsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

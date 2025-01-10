@@ -11,6 +11,7 @@ class Tasks with _$Tasks {
     int? customer_id,
     String? created_by,
     int? total_price,
+    String? payment_method,
     String? status,
     String? created_at,
     String? updated_at,

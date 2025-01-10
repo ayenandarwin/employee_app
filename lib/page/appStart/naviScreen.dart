@@ -1,6 +1,7 @@
 import 'package:employee_app/controller/naviController.dart';
 import 'package:employee_app/page/home.dart';
 import 'package:employee_app/page/leaves.dart';
+import 'package:employee_app/page/okkkk.dart';
 import 'package:employee_app/page/profileScreen.dart';
 import 'package:employee_app/utils/colors.dart';
 import 'package:employee_app/utils/global.dart';
@@ -132,6 +133,7 @@ class _NaviScreenState extends State<NaviScreen> {
             index: naviController.currentIndex.value,
             children: [
               HomeScreen(),
+              //HomeScreen(),
               LeavesScreen(),
               Profilescreen(),
 

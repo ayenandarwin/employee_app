@@ -10,6 +10,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:get/get.dart';
 
+import '../utils/styles.dart';
+
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 
@@ -65,18 +67,6 @@ class _LoginScreenState extends State<LoginScreen> {
       body: SingleChildScrollView(
         child: Stack(
           children: [
-            // Container(
-            //   margin: EdgeInsets.only(bottom: size.height / 2),
-            //   height: size.height / 5 * 2.1,
-            //   decoration: BoxDecoration(
-            //       color: Colors.grey,
-            //       //  color: Constants.green3,
-            //       borderRadius: BorderRadius.only(
-            //           bottomLeft: Radius.circular(
-            //             40,
-            //           ),
-            //           bottomRight: Radius.circular(40))),
-            // ),
             Container(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -87,355 +77,254 @@ class _LoginScreenState extends State<LoginScreen> {
                   Center(
                     child: Image.asset(
                       'assets/images/1.png',
+                      // 'assets/images/photo_2025-01-06_11-54-08.jpg',
                       //'assets/Image/exchange.png',
-                      width: 100,
-                      height: 100,
-                      // scale: 0.1,
+                      width: 150,
+                      height: 150,
+                      // scale: 0.3,
                     ),
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  // Row(
-                  //   mainAxisAlignment: MainAxisAlignment.center,
-                  //   children: [
-                  //     Text(
-                  //       "မြန်အံ့",
-                  //       style: TextStyle(
-                  //           color: ColorsPalette.mainColor,
-                  //           fontWeight: FontWeight.bold,
-                  //           fontSize: 30),
-                  //     ),
-                  //     Text(
-                  //       "Wave",
-                  //       style: TextStyle(fontSize: 30, color: Colors.black54),
-                  //     ),
-                  //   ],
-                  // ),
-                  SizedBox(
-                    height: 30,
                   ),
                   Center(
-                    child: Container(
-                      height: MediaQuery.of(context).size.height * 0.3,
-                      child: Card(
-                        elevation: 5,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10)),
-                        child: Container(
-                          padding: EdgeInsets.symmetric(horizontal: 16),
-                          width: MediaQuery.of(context).size.width * 0.85,
-                          // height: MediaQuery.of(context).size.width * 0.4,
-                          child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                SizedBox(
-                                  height: 16,
-                                ),
-                                Center(
-                                  child: Text(
-                                    'Login'.tr,
-                                    style: TextStyle(
-                                      fontSize: 16,
-                                    ),
+                    child: Text('Login'.tr, style: Styles.headerStyle),
+                  ),
+                  Container(
+                    padding: EdgeInsets.symmetric(horizontal: 20),
+                    // height: MediaQuery.of(context).size.height * 0.3,
+                    child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          SizedBox(
+                            height: 20,
+                          ),
+                          Container(
+                            child: TextFormField(
+                              controller: phoneController,
+                              focusNode: phoneFocusNode,
+                              keyboardType: TextInputType.number,
+                              decoration: InputDecoration(
+                                labelText: "phone",
+                                labelStyle: TextStyle(fontSize: 12),
+                                suffixIcon: Icon(Icons.phone),
+                                fillColor: Colors.white,
+                                focusedBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  borderSide: BorderSide(
+                                    color: Colors.black,
                                   ),
                                 ),
-                                SizedBox(
-                                  height: 10,
-                                ),
-                                Container(
-                                  height: 45,
-                                  child: TextFormField(
-                                    controller: phoneController,
-                                    focusNode: phoneFocusNode,
-                                    keyboardType: TextInputType.number,
-                                    decoration: InputDecoration(
-                                      labelText: "phone",
-                                      labelStyle: TextStyle(fontSize: 12),
-                                      suffixIcon: Icon(Icons.phone),
-                                      fillColor: Colors.white,
-                                      focusedBorder: OutlineInputBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(10.0),
-                                        borderSide: BorderSide(
-                                          color: Colors.black,
-                                        ),
-                                      ),
-                                      enabledBorder: OutlineInputBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(10.0),
-                                        borderSide: BorderSide(
-                                          color: Colors.grey,
-                                          width: 2.0,
-                                        ),
-                                      ),
-                                    ),
+                                enabledBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  borderSide: BorderSide(
+                                    color: Colors.grey,
+                                    width: 2.0,
                                   ),
                                 ),
-                                SizedBox(
-                                  height: 16,
+                              ),
+                            ),
+                          ),
+                          SizedBox(
+                            height: 16,
+                          ),
+                          Container(
+                            child: TextFormField(
+                              obscureText: _isObscured,
+                              controller: passwordController,
+                              focusNode: passwordFocusNode,
+                              decoration: InputDecoration(
+                                labelText: "password",
+                                labelStyle: TextStyle(fontSize: 12),
+                                suffixIcon: IconButton(
+                                  icon: _isObscured
+                                      ? Icon(Icons.visibility)
+                                      : Icon(Icons.visibility_off),
+                                  onPressed: () {
+                                    setState(() {
+                                      _isObscured = !_isObscured;
+                                    });
+                                  },
                                 ),
-                                Container(
-                                  height: 45,
-                                  child: TextFormField(
-                                    obscureText: _isObscured,
-                                    controller: passwordController,
-                                    focusNode: passwordFocusNode,
-                                    decoration: InputDecoration(
-                                      labelText: "password",
-                                      labelStyle: TextStyle(fontSize: 12),
-                                      suffixIcon: IconButton(
-                                        icon: _isObscured
-                                            ? Icon(Icons.visibility)
-                                            : Icon(Icons.visibility_off),
-                                        onPressed: () {
-                                          setState(() {
-                                            _isObscured = !_isObscured;
-                                          });
-                                        },
-                                      ),
-                                      fillColor: Colors.white,
-                                      focusedBorder: OutlineInputBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(10.0),
-                                        borderSide: BorderSide(
-                                          color: Colors.black,
-                                        ),
-                                      ),
-                                      enabledBorder: OutlineInputBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(10.0),
-                                        borderSide: BorderSide(
-                                          color: Colors.grey,
-                                          width: 2.0,
-                                        ),
-                                      ),
-                                    ),
+                                fillColor: Colors.white,
+                                focusedBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  borderSide: BorderSide(
+                                    color: Colors.black,
                                   ),
                                 ),
-                                SizedBox(
-                                  height: 10,
+                                enabledBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  borderSide: BorderSide(
+                                    color: Colors.grey,
+                                    width: 2.0,
+                                  ),
                                 ),
-                                SizedBox(
-                                  height: 5,
-                                ),
-                                Row(
-                                  //mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                  children: [
-                                    SizedBox(
-                                      width: 5,
-                                    ),
-                                    InkWell(
-                                      onTap: () async {
+                              ),
+                            ),
+                          ),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          Consumer(
+                            builder: (context, ref, child) {
+                              return
+                                  // isloading
+                                  //     ?
+
+                                  //     Container(
+                                  //         width: double.infinity,
+
+                                  //         decoration: BoxDecoration(
+                                  //             color: ColorsPalette.mainColor,
+                                  //             borderRadius:
+                                  //                 BorderRadius.circular(5)),
+                                  //         // margin: EdgeInsets.symmetric(horizontal: 25),
+                                  //         // width: 265,
+                                  //         height: 55,
+
+                                  //         child: SizedBox(
+                                  //           width: 20,
+                                  //           height: 20,
+                                  //           child: CircularProgressIndicator(
+                                  //             color: Colors.white,
+                                  //           ),
+                                  //         ),
+                                  //       )
+
+                                  // Container(
+                                  //     width: MediaQuery.of(context).size.width *
+                                  //         0.22,
+                                  //     height:
+                                  //         MediaQuery.of(context).size.height *
+                                  //             0.0575,
+                                  //     padding: EdgeInsets.all(15),
+                                  //     alignment: Alignment.center,
+                                  //     decoration: BoxDecoration(
+                                  //         borderRadius:
+                                  //             BorderRadius.circular(12),
+                                  //         color: ColorsPalette.mainColor),
+                                  //     child: SizedBox(
+                                  //       height: 30,
+                                  //       width: 30,
+                                  //       child: CircularProgressIndicator(
+                                  //         color: Colors.white,
+                                  //         //strokeWidth: 2,
+                                  //       ),
+                                  //     ),
+                                  //   )
+                                  //:
+                                  GestureDetector(
+                                onTap: () {
+                                  // Get.to(NaviScreen());
+                                  phoneFocusNode.unfocus();
+                                  passwordFocusNode.unfocus();
+                                  if (phoneController.text != "" &&
+                                      passwordController.text != "") {
+                                    setState(() {
+                                      isloading = true;
+                                    });
+                                    ref
+                                        .watch(authServiceProvider)
+                                        .login(
+                                          phone: phoneController.text,
+                                          password: passwordController.text,
+                                        )
+                                        .then((value) async {
+                                      print(value);
+                                      var status = value["success"];
+                                      if (status.toString() == "true") {
+                                        // var token = value[
+                                        //     "access_token"];
+                                        var token =
+                                            value["data"]["access_token"];
+
+                                        if (token != null) {
+                                          await SharedPref.setData(
+                                            key: SharedPref.token,
+                                            value: "$token",
+                                          );
+                                        }
+
+                                        print(
+                                            'token *****************  $token');
+                                        // if (_remember) {
+                                        //   print("Remember");
+                                        //   rememberController
+                                        //       .saveRememberUserName(
+                                        //           username:
+                                        //               phoneController
+                                        //                   .text);
+                                        //   rememberController
+                                        //       .saveRememberPassword(
+                                        //           password:
+                                        //               passwordController
+                                        //                   .text);
+                                        // } else {
+                                        //   rememberController
+                                        //       .removeRememberUsername();
+                                        //   rememberController
+                                        //       .removeRememberPassword();
+                                        // }
+                                        // Global.isLogIn = true;
+                                        // Global.loginStatus();
                                         setState(() {
-                                          _remember = !_remember;
+                                          isloading = false;
                                         });
-                                      },
-                                      child: _remember
-                                          ? Icon(
-                                              Icons.check_box,
-                                              color: ColorsPalette.mainColor,
-                                              size: 25,
-                                            )
-                                          : Icon(
-                                              Icons.check_box_outline_blank,
-                                              color: ColorsPalette.mainColor,
-                                              size: 25,
+                                        Get.off(() => NaviScreen());
+                                      } else {
+                                        setState(() {
+                                          isloading = false;
+                                          phoneController.clear();
+                                          passwordController.clear();
+                                          Get.snackbar(
+                                            "Alert",
+                                            "အကောင့်ဝင်ခြင်း မအောင်မြင်ပါ",
+                                            backgroundColor: Colors.redAccent,
+                                          );
+                                        });
+                                      }
+                                    });
+                                  } else {
+                                    Get.snackbar(
+                                      "Alert",
+                                      "Please Enter Required Field",
+                                      backgroundColor: Colors.redAccent,
+                                    );
+                                  }
+                                },
+                                child: Center(
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                        color: ColorsPalette.mainColor,
+                                        borderRadius: BorderRadius.circular(5)),
+                                    // margin: EdgeInsets.symmetric(horizontal: 25),
+                                    // width: 265,
+                                    height: 55,
+                                    child: isloading
+                                        ? Center(
+                                            child: SizedBox(
+                                              height: 30,
+                                              width: 30,
+                                              child: CircularProgressIndicator(
+                                                color: Colors.white,
+                                                //strokeWidth: 2,
+                                              ),
                                             ),
-                                    ),
-                                    SizedBox(
-                                      width: 10,
-                                    ),
-                                    Text(
-                                      "Remember User".tr,
-                                      style: TextStyle(
-                                          color: Colors.black.withOpacity(.9),
-                                          fontSize: 12),
-                                    ),
-                                    // Checkbox(
-                                    //     value: isChecked,
-                                    //     activeColor: Colors.blue,
-                                    //     tristate: true,
-                                    //     onChanged: (newBool) {
-                                    //       setState(() {
-                                    //         isChecked = newBool;
-                                    //       });
-                                    //     }),
-                                    // Text(
-                                    //   "Remember me",
-                                    //   style: TextStyle(fontSize: 12),
-                                    // ),
-                                    SizedBox(
-                                      width: 45,
-                                    ),
-                                    Consumer(
-                                      builder: (context, ref, child) {
-                                        return isloading
-                                            ? Container(
-                                                width: MediaQuery.of(context)
-                                                        .size
-                                                        .width *
-                                                    0.22,
-                                                height: MediaQuery.of(context)
-                                                        .size
-                                                        .height *
-                                                    0.0575,
-                                                padding: EdgeInsets.all(15),
-                                                alignment: Alignment.center,
-                                                decoration: BoxDecoration(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            12),
-                                                    color: ColorsPalette
-                                                        .mainColor),
-                                                child: SizedBox(
-                                                  height: 30,
-                                                  width: 30,
-                                                  child:
-                                                      CircularProgressIndicator(
-                                                    color: Colors.white,
-                                                    //strokeWidth: 2,
-                                                  ),
-                                                ),
-                                              )
-                                            : GestureDetector(
-                                                onTap: () {
-                                                  // Get.to(NaviScreen());
-                                                  phoneFocusNode.unfocus();
-                                                  passwordFocusNode.unfocus();
-                                                  if (phoneController.text !=
-                                                          "" &&
-                                                      passwordController.text !=
-                                                          "") {
-                                                    setState(() {
-                                                      isloading = true;
-                                                    });
-                                                    ref
-                                                        .watch(
-                                                            authServiceProvider)
-                                                        .login(
-                                                          phone: phoneController
-                                                              .text,
-                                                          password:
-                                                              passwordController
-                                                                  .text,
-                                                        )
-                                                        .then((value) async {
-                                                      print(value);
-                                                      var status =
-                                                          value["success"];
-                                                      if (status.toString() ==
-                                                          "true") {
-                                                        // var token = value[
-                                                        //     "access_token"];
-                                                        var token = value[
-                                                                "data"]
-                                                            ["access_token"];
-
-                                                        if (token != null) {
-                                                          await SharedPref
-                                                              .setData(
-                                                            key: SharedPref
-                                                                .token,
-                                                            value: "$token",
-                                                          );
-                                                        }
-
-                                                        // await SharedPref.setData(
-                                                        //     key: SharedPref.token,
-                                                        //     value:
-                                                        //          "Bearer $token"
-                                                        //        // "$token"
-                                                        //         );
-
-                                                        print(
-                                                            'token *****************  $token');
-                                                        if (_remember) {
-                                                          print("Remember");
-                                                          rememberController
-                                                              .saveRememberUserName(
-                                                                  username:
-                                                                      phoneController
-                                                                          .text);
-                                                          rememberController
-                                                              .saveRememberPassword(
-                                                                  password:
-                                                                      passwordController
-                                                                          .text);
-                                                        } else {
-                                                          rememberController
-                                                              .removeRememberUsername();
-                                                          rememberController
-                                                              .removeRememberPassword();
-                                                        }
-                                                        // Global.isLogIn = true;
-                                                        // Global.loginStatus();
-                                                        setState(() {
-                                                          isloading = false;
-                                                        });
-                                                        Get.off(
-                                                            () => NaviScreen());
-                                                      } else {
-                                                        setState(() {
-                                                          isloading = false;
-                                                          phoneController
-                                                              .clear();
-                                                          passwordController
-                                                              .clear();
-                                                          Get.snackbar(
-                                                            "Alert",
-                                                            "အကောင့်ဝင်ခြင်း မအောင်မြင်ပါ",
-                                                            backgroundColor:
-                                                                Colors
-                                                                    .redAccent,
-                                                          );
-                                                        });
-                                                      }
-                                                    });
-                                                  } else {
-                                                    Get.snackbar(
-                                                      "Alert",
-                                                      "Please Enter Required Field",
-                                                      backgroundColor:
-                                                          Colors.redAccent,
-                                                    );
-                                                  }
-                                                },
-                                                child: Container(
-                                                  width: MediaQuery.of(context)
-                                                          .size
-                                                          .width *
-                                                      0.22,
-                                                  height: MediaQuery.of(context)
-                                                          .size
-                                                          .height *
-                                                      0.0575,
-                                                  padding: EdgeInsets.all(15),
-                                                  alignment: Alignment.center,
-                                                  decoration: BoxDecoration(
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              5),
-                                                      color: ColorsPalette
-                                                          .mainColor),
-                                                  child: Text(
-                                                    'Login'.tr,
-                                                    style: TextStyle(
-                                                        color: Colors.white,
-                                                        fontSize: 12,
-                                                        fontWeight:
-                                                            FontWeight.w500),
-                                                  ),
-                                                ),
-                                              );
-                                      },
-                                    ),
-                                  ],
+                                          )
+                                        : Center(
+                                            child: Text(
+                                              'Login',
+                                              style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 14,
+                                                fontWeight: FontWeight.bold,
+                                              ),
+                                            ),
+                                          ),
+                                  ),
                                 ),
-                              ]),
-                        ),
-                      ),
-                    ),
+                              );
+                            },
+                          ),
+                        ]),
                   ),
                 ],
               ),

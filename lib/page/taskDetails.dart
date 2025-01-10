@@ -8,7 +8,9 @@ import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 
 class TaskDetailScreen extends StatefulWidget {
-  const TaskDetailScreen({super.key});
+    final String task_id;
+
+  const TaskDetailScreen({super.key,required this.task_id});
 
   @override
   State<TaskDetailScreen> createState() => _TaskDetailScreenState();

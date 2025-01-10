@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'order_items.dart';
+part of 'order_item_detail.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,12 +14,12 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-OrderItems _$OrderItemsFromJson(Map<String, dynamic> json) {
-  return _OrderItems.fromJson(json);
+OrderItemDetails _$OrderItemDetailsFromJson(Map<String, dynamic> json) {
+  return _OrderItemDetails.fromJson(json);
 }
 
 /// @nodoc
-mixin _$OrderItems {
+mixin _$OrderItemDetails {
   int? get id => throw _privateConstructorUsedError;
   int? get order_id => throw _privateConstructorUsedError;
   int? get product_id => throw _privateConstructorUsedError;
@@ -46,23 +46,25 @@ mixin _$OrderItems {
   int? get checkout_counts => throw _privateConstructorUsedError;
   int? get completed_counts => throw _privateConstructorUsedError;
   Service? get service => throw _privateConstructorUsedError;
-  Period? get period => throw _privateConstructorUsedError;
+  OperationArea? get operation_area => throw _privateConstructorUsedError;
+  Specialist get specialist => throw _privateConstructorUsedError;
+  Maid get maid => throw _privateConstructorUsedError;
 
-  /// Serializes this OrderItems to a JSON map.
+  /// Serializes this OrderItemDetails to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 
-  /// Create a copy of OrderItems
+  /// Create a copy of OrderItemDetails
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $OrderItemsCopyWith<OrderItems> get copyWith =>
+  $OrderItemDetailsCopyWith<OrderItemDetails> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $OrderItemsCopyWith<$Res> {
-  factory $OrderItemsCopyWith(
-          OrderItems value, $Res Function(OrderItems) then) =
-      _$OrderItemsCopyWithImpl<$Res, OrderItems>;
+abstract class $OrderItemDetailsCopyWith<$Res> {
+  factory $OrderItemDetailsCopyWith(
+          OrderItemDetails value, $Res Function(OrderItemDetails) then) =
+      _$OrderItemDetailsCopyWithImpl<$Res, OrderItemDetails>;
   @useResult
   $Res call(
       {int? id,
@@ -91,23 +93,27 @@ abstract class $OrderItemsCopyWith<$Res> {
       int? checkout_counts,
       int? completed_counts,
       Service? service,
-      Period? period});
+      OperationArea? operation_area,
+      Specialist specialist,
+      Maid maid});
 
   $ServiceCopyWith<$Res>? get service;
-  $PeriodCopyWith<$Res>? get period;
+  $OperationAreaCopyWith<$Res>? get operation_area;
+  $SpecialistCopyWith<$Res> get specialist;
+  $MaidCopyWith<$Res> get maid;
 }
 
 /// @nodoc
-class _$OrderItemsCopyWithImpl<$Res, $Val extends OrderItems>
-    implements $OrderItemsCopyWith<$Res> {
-  _$OrderItemsCopyWithImpl(this._value, this._then);
+class _$OrderItemDetailsCopyWithImpl<$Res, $Val extends OrderItemDetails>
+    implements $OrderItemDetailsCopyWith<$Res> {
+  _$OrderItemDetailsCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of OrderItems
+  /// Create a copy of OrderItemDetails
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -138,7 +144,9 @@ class _$OrderItemsCopyWithImpl<$Res, $Val extends OrderItems>
     Object? checkout_counts = freezed,
     Object? completed_counts = freezed,
     Object? service = freezed,
-    Object? period = freezed,
+    Object? operation_area = freezed,
+    Object? specialist = null,
+    Object? maid = null,
   }) {
     return _then(_value.copyWith(
       id: freezed == id
@@ -245,14 +253,22 @@ class _$OrderItemsCopyWithImpl<$Res, $Val extends OrderItems>
           ? _value.service
           : service // ignore: cast_nullable_to_non_nullable
               as Service?,
-      period: freezed == period
-          ? _value.period
-          : period // ignore: cast_nullable_to_non_nullable
-              as Period?,
+      operation_area: freezed == operation_area
+          ? _value.operation_area
+          : operation_area // ignore: cast_nullable_to_non_nullable
+              as OperationArea?,
+      specialist: null == specialist
+          ? _value.specialist
+          : specialist // ignore: cast_nullable_to_non_nullable
+              as Specialist,
+      maid: null == maid
+          ? _value.maid
+          : maid // ignore: cast_nullable_to_non_nullable
+              as Maid,
     ) as $Val);
   }
 
-  /// Create a copy of OrderItems
+  /// Create a copy of OrderItemDetails
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
@@ -266,27 +282,47 @@ class _$OrderItemsCopyWithImpl<$Res, $Val extends OrderItems>
     });
   }
 
-  /// Create a copy of OrderItems
+  /// Create a copy of OrderItemDetails
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $PeriodCopyWith<$Res>? get period {
-    if (_value.period == null) {
+  $OperationAreaCopyWith<$Res>? get operation_area {
+    if (_value.operation_area == null) {
       return null;
     }
 
-    return $PeriodCopyWith<$Res>(_value.period!, (value) {
-      return _then(_value.copyWith(period: value) as $Val);
+    return $OperationAreaCopyWith<$Res>(_value.operation_area!, (value) {
+      return _then(_value.copyWith(operation_area: value) as $Val);
+    });
+  }
+
+  /// Create a copy of OrderItemDetails
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $SpecialistCopyWith<$Res> get specialist {
+    return $SpecialistCopyWith<$Res>(_value.specialist, (value) {
+      return _then(_value.copyWith(specialist: value) as $Val);
+    });
+  }
+
+  /// Create a copy of OrderItemDetails
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $MaidCopyWith<$Res> get maid {
+    return $MaidCopyWith<$Res>(_value.maid, (value) {
+      return _then(_value.copyWith(maid: value) as $Val);
     });
   }
 }
 
 /// @nodoc
-abstract class _$$OrderItemsImplCopyWith<$Res>
-    implements $OrderItemsCopyWith<$Res> {
-  factory _$$OrderItemsImplCopyWith(
-          _$OrderItemsImpl value, $Res Function(_$OrderItemsImpl) then) =
-      __$$OrderItemsImplCopyWithImpl<$Res>;
+abstract class _$$OrderItemDetailsImplCopyWith<$Res>
+    implements $OrderItemDetailsCopyWith<$Res> {
+  factory _$$OrderItemDetailsImplCopyWith(_$OrderItemDetailsImpl value,
+          $Res Function(_$OrderItemDetailsImpl) then) =
+      __$$OrderItemDetailsImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -316,23 +352,29 @@ abstract class _$$OrderItemsImplCopyWith<$Res>
       int? checkout_counts,
       int? completed_counts,
       Service? service,
-      Period? period});
+      OperationArea? operation_area,
+      Specialist specialist,
+      Maid maid});
 
   @override
   $ServiceCopyWith<$Res>? get service;
   @override
-  $PeriodCopyWith<$Res>? get period;
+  $OperationAreaCopyWith<$Res>? get operation_area;
+  @override
+  $SpecialistCopyWith<$Res> get specialist;
+  @override
+  $MaidCopyWith<$Res> get maid;
 }
 
 /// @nodoc
-class __$$OrderItemsImplCopyWithImpl<$Res>
-    extends _$OrderItemsCopyWithImpl<$Res, _$OrderItemsImpl>
-    implements _$$OrderItemsImplCopyWith<$Res> {
-  __$$OrderItemsImplCopyWithImpl(
-      _$OrderItemsImpl _value, $Res Function(_$OrderItemsImpl) _then)
+class __$$OrderItemDetailsImplCopyWithImpl<$Res>
+    extends _$OrderItemDetailsCopyWithImpl<$Res, _$OrderItemDetailsImpl>
+    implements _$$OrderItemDetailsImplCopyWith<$Res> {
+  __$$OrderItemDetailsImplCopyWithImpl(_$OrderItemDetailsImpl _value,
+      $Res Function(_$OrderItemDetailsImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of OrderItems
+  /// Create a copy of OrderItemDetails
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -363,9 +405,11 @@ class __$$OrderItemsImplCopyWithImpl<$Res>
     Object? checkout_counts = freezed,
     Object? completed_counts = freezed,
     Object? service = freezed,
-    Object? period = freezed,
+    Object? operation_area = freezed,
+    Object? specialist = null,
+    Object? maid = null,
   }) {
-    return _then(_$OrderItemsImpl(
+    return _then(_$OrderItemDetailsImpl(
       freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -470,18 +514,26 @@ class __$$OrderItemsImplCopyWithImpl<$Res>
           ? _value.service
           : service // ignore: cast_nullable_to_non_nullable
               as Service?,
-      freezed == period
-          ? _value.period
-          : period // ignore: cast_nullable_to_non_nullable
-              as Period?,
+      freezed == operation_area
+          ? _value.operation_area
+          : operation_area // ignore: cast_nullable_to_non_nullable
+              as OperationArea?,
+      null == specialist
+          ? _value.specialist
+          : specialist // ignore: cast_nullable_to_non_nullable
+              as Specialist,
+      null == maid
+          ? _value.maid
+          : maid // ignore: cast_nullable_to_non_nullable
+              as Maid,
     ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$OrderItemsImpl implements _OrderItems {
-  const _$OrderItemsImpl(
+class _$OrderItemDetailsImpl implements _OrderItemDetails {
+  const _$OrderItemDetailsImpl(
       this.id,
       this.order_id,
       this.product_id,
@@ -508,10 +560,12 @@ class _$OrderItemsImpl implements _OrderItems {
       this.checkout_counts,
       this.completed_counts,
       this.service,
-      this.period);
+      this.operation_area,
+      this.specialist,
+      this.maid);
 
-  factory _$OrderItemsImpl.fromJson(Map<String, dynamic> json) =>
-      _$$OrderItemsImplFromJson(json);
+  factory _$OrderItemDetailsImpl.fromJson(Map<String, dynamic> json) =>
+      _$$OrderItemDetailsImplFromJson(json);
 
   @override
   final int? id;
@@ -566,18 +620,22 @@ class _$OrderItemsImpl implements _OrderItems {
   @override
   final Service? service;
   @override
-  final Period? period;
+  final OperationArea? operation_area;
+  @override
+  final Specialist specialist;
+  @override
+  final Maid maid;
 
   @override
   String toString() {
-    return 'OrderItems(id: $id, order_id: $order_id, product_id: $product_id, product_type: $product_type, duration_id: $duration_id, quantity: $quantity, worker_quantity: $worker_quantity, male_qty: $male_qty, female_qty: $female_qty, address_id: $address_id, operation_area_id: $operation_area_id, specialist_id: $specialist_id, price: $price, allowed_usage: $allowed_usage, use_count: $use_count, next_service_date: $next_service_date, service_date: $service_date, period_id: $period_id, order_state: $order_state, created_at: $created_at, updated_at: $updated_at, accepted_counts: $accepted_counts, checkin_counts: $checkin_counts, checkout_counts: $checkout_counts, completed_counts: $completed_counts, service: $service, period: $period)';
+    return 'OrderItemDetails(id: $id, order_id: $order_id, product_id: $product_id, product_type: $product_type, duration_id: $duration_id, quantity: $quantity, worker_quantity: $worker_quantity, male_qty: $male_qty, female_qty: $female_qty, address_id: $address_id, operation_area_id: $operation_area_id, specialist_id: $specialist_id, price: $price, allowed_usage: $allowed_usage, use_count: $use_count, next_service_date: $next_service_date, service_date: $service_date, period_id: $period_id, order_state: $order_state, created_at: $created_at, updated_at: $updated_at, accepted_counts: $accepted_counts, checkin_counts: $checkin_counts, checkout_counts: $checkout_counts, completed_counts: $completed_counts, service: $service, operation_area: $operation_area, specialist: $specialist, maid: $maid)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$OrderItemsImpl &&
+            other is _$OrderItemDetailsImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.order_id, order_id) ||
                 other.order_id == order_id) &&
@@ -627,7 +685,11 @@ class _$OrderItemsImpl implements _OrderItems {
             (identical(other.completed_counts, completed_counts) ||
                 other.completed_counts == completed_counts) &&
             (identical(other.service, service) || other.service == service) &&
-            (identical(other.period, period) || other.period == period));
+            (identical(other.operation_area, operation_area) ||
+                other.operation_area == operation_area) &&
+            (identical(other.specialist, specialist) ||
+                other.specialist == specialist) &&
+            (identical(other.maid, maid) || other.maid == maid));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -660,27 +722,30 @@ class _$OrderItemsImpl implements _OrderItems {
         checkout_counts,
         completed_counts,
         service,
-        period
+        operation_area,
+        specialist,
+        maid
       ]);
 
-  /// Create a copy of OrderItems
+  /// Create a copy of OrderItemDetails
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$OrderItemsImplCopyWith<_$OrderItemsImpl> get copyWith =>
-      __$$OrderItemsImplCopyWithImpl<_$OrderItemsImpl>(this, _$identity);
+  _$$OrderItemDetailsImplCopyWith<_$OrderItemDetailsImpl> get copyWith =>
+      __$$OrderItemDetailsImplCopyWithImpl<_$OrderItemDetailsImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$OrderItemsImplToJson(
+    return _$$OrderItemDetailsImplToJson(
       this,
     );
   }
 }
 
-abstract class _OrderItems implements OrderItems {
-  const factory _OrderItems(
+abstract class _OrderItemDetails implements OrderItemDetails {
+  const factory _OrderItemDetails(
       final int? id,
       final int? order_id,
       final int? product_id,
@@ -707,10 +772,12 @@ abstract class _OrderItems implements OrderItems {
       final int? checkout_counts,
       final int? completed_counts,
       final Service? service,
-      final Period? period) = _$OrderItemsImpl;
+      final OperationArea? operation_area,
+      final Specialist specialist,
+      final Maid maid) = _$OrderItemDetailsImpl;
 
-  factory _OrderItems.fromJson(Map<String, dynamic> json) =
-      _$OrderItemsImpl.fromJson;
+  factory _OrderItemDetails.fromJson(Map<String, dynamic> json) =
+      _$OrderItemDetailsImpl.fromJson;
 
   @override
   int? get id;
@@ -765,12 +832,16 @@ abstract class _OrderItems implements OrderItems {
   @override
   Service? get service;
   @override
-  Period? get period;
+  OperationArea? get operation_area;
+  @override
+  Specialist get specialist;
+  @override
+  Maid get maid;
 
-  /// Create a copy of OrderItems
+  /// Create a copy of OrderItemDetails
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$OrderItemsImplCopyWith<_$OrderItemsImpl> get copyWith =>
+  _$$OrderItemDetailsImplCopyWith<_$OrderItemDetailsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

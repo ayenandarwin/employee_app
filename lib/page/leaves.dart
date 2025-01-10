@@ -293,7 +293,7 @@ class _LeavesScreenState extends State<LeavesScreen> {
                   child: DropdownButtonHideUnderline(
                     child: DropdownButton<String>(
                       hint: Text(
-                        "Select Township",
+                        "Annual",
                         style: TextStyle(fontSize: 12),
                       ),
                       value: leave,

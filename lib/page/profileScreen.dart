@@ -3,6 +3,8 @@ import 'dart:io';
 import 'package:employee_app/utils/colors.dart';
 import 'package:employee_app/utils/styles.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_navigation/src/snackbar/snackbar.dart';
 import 'package:image_picker/image_picker.dart';
 
 class Profilescreen extends StatefulWidget {
@@ -15,6 +17,31 @@ class Profilescreen extends StatefulWidget {
 class _ProfilescreenState extends State<Profilescreen> {
   var selectedImagePath = "";
   var selectedgallery = "";
+  var selectedImageAvatarPath = '';
+
+  getAvatorImage(ImageSource imageSource) async {
+    final pickedFile = await ImagePicker().pickImage(source: imageSource);
+    // var res = await uploadImage(
+    //   pickedFile!.path,
+    //   APIURL.updateAvatar,
+    // );
+    print("Picked File ${pickedFile!.path}");
+    // var res = await uploadPhotoToApi(pickedFile.path);
+
+    setState(() {
+      if (pickedFile != null) {
+        selectedImageAvatarPath = pickedFile.path;
+
+        print("Photo Result *******: ${selectedImageAvatarPath}");
+      } else {
+        Get.snackbar('Error', 'No image selected',
+            snackPosition: SnackPosition.BOTTOM,
+            backgroundColor: Colors.redAccent,
+            colorText: Colors.white);
+      }
+    });
+    //print(res);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -34,85 +61,105 @@ class _ProfilescreenState extends State<Profilescreen> {
                   context: context,
                   builder: (context) {
                     return Container(
-                        height: 200,
-                        child: 
-                        Column(
+                        height: 210,
+                        child: Column(
                           children: [
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
-                                Container(
-                                  // width: MediaQuery.of(context).size.width * 0.3,
-                                  height:
-                                      MediaQuery.of(context).size.height * 0.2,
-                                  child: InkWell(
-                                    onTap: () async {
-                                      final pickedFile = await ImagePicker()
-                                          .pickImage(
-                                              source: ImageSource.camera);
-                                      setState(() {
-                                        selectedImagePath = pickedFile!.path;
-                                      });
-                                      //  OrderController.getImage(ImageSource.camera);
-                                      //  getImage(ImageSource.camera);
-                                    },
-                                    child: selectedImagePath != ""
-                                        ? Container(
-                                            width: MediaQuery.of(context)
-                                                    .size
-                                                    .width *
-                                                0.3,
-                                            height: MediaQuery.of(context)
-                                                    .size
-                                                    .height *
-                                                0.2,
-                                            child: Image.file(File(
-                                              selectedImagePath,
-                                            )),
-                                          )
-                                        : Image.asset(
-                                            'assets/images/camera1.png',
-                                            width: 70,
-                                            height: 70,
-                                          ),
-                                  ),
+                                Column(
+                                  children: [
+                                    Container(
+                                      // width: MediaQuery.of(context).size.width * 0.3,
+                                      height:
+                                          MediaQuery.of(context).size.height *
+                                              0.2,
+                                      child: InkWell(
+                                        // onTap: () async {
+                                        //   final pickedFile = await ImagePicker()
+                                        //       .pickImage(
+                                        //           source: ImageSource.camera);
+                                        //   setState(() {
+                                        //     selectedImagePath =
+                                        //         pickedFile!.path;
+                                        //   });
+                                        //   //  OrderController.getImage(ImageSource.camera);
+                                        //   //  getImage(ImageSource.camera);
+                                        // },
+                                        child: selectedImagePath != ""
+                                            ? Container(
+                                                width: MediaQuery.of(context)
+                                                        .size
+                                                        .width *
+                                                    0.3,
+                                                height: MediaQuery.of(context)
+                                                        .size
+                                                        .height *
+                                                    0.2,
+                                                child: Image.file(File(
+                                                  selectedImagePath,
+                                                )),
+                                              )
+                                            : Image.asset(
+                                                'assets/images/camera1.png',
+                                                color: ColorsPalette.mainColor,
+                                                width: 70,
+                                                height: 70,
+                                              ),
+                                      ),
+                                    ),
+                                    Text(
+                                      'Camera',
+                                      style: Styles.subtitleStyle,
+                                    )
+                                  ],
                                 ),
                                 SizedBox(
                                   width: 30,
                                 ),
-                                Container(
-                                  // width: MediaQuery.of(context).size.width * 0.3,
-                                  height:
-                                      MediaQuery.of(context).size.height * 0.2,
-                                  child: InkWell(
-                                    onTap: () async {
-                                      final pickedFile = await ImagePicker()
-                                          .pickImage(
-                                              source: ImageSource.gallery);
-                                      setState(() {
-                                        selectedgallery = pickedFile!.path;
-                                      });
-                                    },
-                                    child: selectedgallery != ""
-                                        ? Container(
-                                            width: MediaQuery.of(context)
-                                                    .size
-                                                    .width *
-                                                0.3,
-                                            height: MediaQuery.of(context)
-                                                    .size
-                                                    .height *
-                                                0.2,
-                                            child: Image.file(File(
-                                              selectedgallery,
-                                            )),
-                                          )
-                                        : Image.asset(
-                                            'assets/images/image-gallery.png',
-                                            width: 70,
-                                            height: 70,
-                                          ),
-                                  ),
+                                Column(
+                                  children: [
+                                    Container(
+                                      // width: MediaQuery.of(context).size.width * 0.3,
+                                      height:
+                                          MediaQuery.of(context).size.height *
+                                              0.2,
+                                      child: InkWell(
+                                        // onTap: () async {
+                                        //   final pickedFile = await ImagePicker()
+                                        //       .pickImage(
+                                        //           source: ImageSource.gallery);
+                                        //   setState(() {
+                                        //     selectedgallery = pickedFile!.path;
+                                        //   });
+                                        // },
+                                        child: selectedgallery != ""
+                                            ? Container(
+                                                width: MediaQuery.of(context)
+                                                        .size
+                                                        .width *
+                                                    0.3,
+                                                height: MediaQuery.of(context)
+                                                        .size
+                                                        .height *
+                                                    0.2,
+                                                child: Image.file(File(
+                                                  selectedgallery,
+                                                )),
+                                              )
+                                            : Image.asset(
+                                                'assets/images/image-gallery.png',
+                                                color: ColorsPalette.mainColor,
+                                                width: 70,
+                                                height: 70,
+                                              ),
+                                      ),
+                                    ),
+                                    Text(
+                                      'Gallery',
+                                      style: Styles.subtitleStyle,
+                                    )
+                                  ],
                                 ),
                               ],
                             ),
@@ -142,6 +189,112 @@ class _ProfilescreenState extends State<Profilescreen> {
                 ),
               ),
             ),
+
+            // selectedImageAvatarPath == ''
+            //     ? Stack(
+            //         children: [
+            //           Container(
+            //             //  margin: EdgeInsets.symmetric(horizontal: 5),
+            //             padding: EdgeInsets.only(right: 10),
+            //             child: CircleAvatar(
+            //               radius: 46,
+            //               backgroundColor: Colors.black12,
+            //               child: CircleAvatar(
+            //                 radius: 43,
+            //                 backgroundColor: Colors.white,
+            //                 child: CircleAvatar(
+            //                   maxRadius: 37,
+            //                   backgroundColor: Colors.green,
+            //                   child: Icon(
+            //                     Icons.person,
+            //                     size: 60,
+            //                     color: Colors.white,
+            //                   ),
+            //                 ),
+            //               ),
+            //             ),
+            //           ),
+            //           Positioned(
+            //             bottom: 0,
+            //             right: 0,
+            //             child: Container(
+            //                 decoration: BoxDecoration(
+            //                     color: Colors.black54,
+            //                     shape: BoxShape.circle,
+            //                     border:
+            //                         Border.all(width: 2, color: Colors.white)),
+            //                 width: 30,
+            //                 height: 30,
+            //                 child: IconButton(
+            //                   onPressed: () {
+            //                     //userid = profileList!.id;
+            //                     setState(() {
+            //                       getAvatorImage(
+            //                         ImageSource.gallery,
+            //                       );
+            //                     });
+            //                   },
+            //                   icon: Icon(
+            //                     Icons.camera_alt,
+            //                     color: Colors.white,
+            //                     size: 15,
+            //                   ),
+            //                 )),
+            //           )
+            //         ],
+            //       )
+            //     : Stack(
+            //         children: [
+            //           Container(
+            //             width: MediaQuery.of(context).size.width * 0.21,
+            //             height: MediaQuery.of(context).size.height * 0.09,
+            //             child: Container(
+            //               decoration: BoxDecoration(
+            //                 shape: BoxShape.circle,
+            //                 border: Border.all(width: 2, color: Colors.blue),
+            //               ),
+            //               child: ClipOval(
+            //                 child: SizedBox.fromSize(
+            //                   size: Size.fromRadius(46),
+            //                   child: Image.file(
+            //                     File(
+            //                       selectedImageAvatarPath,
+            //                     ),
+            //                     fit: BoxFit.cover,
+            //                   ),
+            //                 ),
+            //               ),
+            //             ),
+            //           ),
+            //           Positioned(
+            //             bottom: -2,
+            //             right: -1,
+            //             child: Container(
+            //                 decoration: BoxDecoration(
+            //                     color: Colors.black54,
+            //                     shape: BoxShape.circle,
+            //                     border:
+            //                         Border.all(width: 2, color: Colors.white)),
+            //                 width: 30,
+            //                 height: 30,
+            //                 child: IconButton(
+            //                   onPressed: () {
+            //                     setState(() {
+            //                       getAvatorImage(ImageSource.gallery);
+            //                     });
+            //                   },
+            //                   icon: Center(
+            //                     child: Icon(
+            //                       Icons.camera_alt,
+            //                       color: Colors.white,
+            //                       size: 15,
+            //                     ),
+            //                   ),
+            //                 )),
+            //           ),
+            //         ],
+            //       ),
+
             SizedBox(
               height: 5,
             ),
@@ -160,7 +313,7 @@ class _ProfilescreenState extends State<Profilescreen> {
               child: ListTile(
                 leading: Icon(Icons.person_outline),
                 title: Text(
-                  'Kyaw Kyaw',
+                  'Profile Settings',
                   style: Styles.subtitleStyle,
                 ),
               ),
@@ -170,39 +323,14 @@ class _ProfilescreenState extends State<Profilescreen> {
             ),
             Card(
               child: ListTile(
-                leading: Icon(Icons.phone_outlined),
+                leading: Icon(Icons.lock_outline),
                 title: Text(
-                  '09406008000',
+                  'Change Password',
                   style: Styles.subtitleStyle,
                 ),
               ),
             ),
-            SizedBox(
-              height: 10,
-            ),
-            Card(
-              child: ListTile(
-                leading: Icon(Icons.note),
-                title: Text(
-                  'Term & Conditions',
-                  style: Styles.subtitleStyle,
-                ),
-                trailing: Icon(Icons.keyboard_arrow_right),
-              ),
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            Card(
-              child: ListTile(
-                leading: Icon(Icons.privacy_tip_outlined),
-                title: Text(
-                  'Privacy Policy',
-                  style: Styles.subtitleStyle,
-                ),
-                trailing: Icon(Icons.keyboard_arrow_right),
-              ),
-            ),
+
             SizedBox(
               height: 10,
             ),
@@ -278,6 +406,32 @@ class _ProfilescreenState extends State<Profilescreen> {
                 leading: Icon(Icons.feedback_outlined),
                 title: Text(
                   'Feedback',
+                  style: Styles.subtitleStyle,
+                ),
+                trailing: Icon(Icons.keyboard_arrow_right),
+              ),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Card(
+              child: ListTile(
+                leading: Icon(Icons.note),
+                title: Text(
+                  'Term & Conditions',
+                  style: Styles.subtitleStyle,
+                ),
+                trailing: Icon(Icons.keyboard_arrow_right),
+              ),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Card(
+              child: ListTile(
+                leading: Icon(Icons.privacy_tip_outlined),
+                title: Text(
+                  'Privacy Policy',
                   style: Styles.subtitleStyle,
                 ),
                 trailing: Icon(Icons.keyboard_arrow_right),

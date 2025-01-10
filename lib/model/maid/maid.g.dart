@@ -1,0 +1,86 @@
+// GENERATED CODE - DO NOT MODIFY BY HAND
+
+part of 'maid.dart';
+
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+_$MaidImpl _$$MaidImplFromJson(Map<String, dynamic> json) => _$MaidImpl(
+      (json['id'] as num?)?.toInt(),
+      json['name'] as String?,
+      json['email'] as String?,
+      json['phone'] as String?,
+      json['password'] as String?,
+      json['gender'] as String?,
+      json['nrc'] as String?,
+      json['address'] as String?,
+      (json['township_id'] as num?)?.toInt(),
+      (json['employee_type_id'] as num?)?.toInt(),
+      json['employment_type'] as String?,
+      json['day_off'] as List<dynamic>?,
+      json['position'] as String?,
+      json['start_join_date'] as String?,
+      json['employee_card_id'] as String?,
+      json['employment_status'] as String?,
+      json['work_status'] as String?,
+      json['employment_note'] as String?,
+      (json['is_leader'] as num?)?.toInt(),
+      json['can_assign_services'] as List<dynamic>?,
+      (json['can_survey'] as num?)?.toInt(),
+      json['guarrentor_name'] as String?,
+      json['guarrentor_phone'] as String?,
+      json['guarrentor_relation'] as String?,
+      json['remember_token'] as String?,
+      json['created_at'] as String?,
+      json['updated_at'] as String?,
+      json['deleted_at'] as String?,
+      json['nrc_state_id'] as String?,
+      json['nrc_township_id'] as String?,
+      json['nrc_type_id'] as String?,
+      json['nrc_number'] as String?,
+      (json['age'] as num?)?.toInt(),
+      (json['take_accomodation'] as num?)?.toInt(),
+      json['pivot'] == null
+          ? null
+          : Pivot.fromJson(json['pivot'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$$MaidImplToJson(_$MaidImpl instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'name': instance.name,
+      'email': instance.email,
+      'phone': instance.phone,
+      'password': instance.password,
+      'gender': instance.gender,
+      'nrc': instance.nrc,
+      'address': instance.address,
+      'township_id': instance.township_id,
+      'employee_type_id': instance.employee_type_id,
+      'employment_type': instance.employment_type,
+      'day_off': instance.day_off,
+      'position': instance.position,
+      'start_join_date': instance.start_join_date,
+      'employee_card_id': instance.employee_card_id,
+      'employment_status': instance.employment_status,
+      'work_status': instance.work_status,
+      'employment_note': instance.employment_note,
+      'is_leader': instance.is_leader,
+      'can_assign_services': instance.can_assign_services,
+      'can_survey': instance.can_survey,
+      'guarrentor_name': instance.guarrentor_name,
+      'guarrentor_phone': instance.guarrentor_phone,
+      'guarrentor_relation': instance.guarrentor_relation,
+      'remember_token': instance.remember_token,
+      'created_at': instance.created_at,
+      'updated_at': instance.updated_at,
+      'deleted_at': instance.deleted_at,
+      'nrc_state_id': instance.nrc_state_id,
+      'nrc_township_id': instance.nrc_township_id,
+      'nrc_type_id': instance.nrc_type_id,
+      'nrc_number': instance.nrc_number,
+      'age': instance.age,
+      'take_accomodation': instance.take_accomodation,
+      'pivot': instance.pivot,
+    };

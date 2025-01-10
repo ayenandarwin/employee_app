@@ -1,13 +1,14 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'order_items.dart';
+part of 'order_item_detail.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$OrderItemsImpl _$$OrderItemsImplFromJson(Map<String, dynamic> json) =>
-    _$OrderItemsImpl(
+_$OrderItemDetailsImpl _$$OrderItemDetailsImplFromJson(
+        Map<String, dynamic> json) =>
+    _$OrderItemDetailsImpl(
       (json['id'] as num?)?.toInt(),
       (json['order_id'] as num?)?.toInt(),
       (json['product_id'] as num?)?.toInt(),
@@ -36,12 +37,16 @@ _$OrderItemsImpl _$$OrderItemsImplFromJson(Map<String, dynamic> json) =>
       json['service'] == null
           ? null
           : Service.fromJson(json['service'] as Map<String, dynamic>),
-      json['period'] == null
+      json['operation_area'] == null
           ? null
-          : Period.fromJson(json['period'] as Map<String, dynamic>),
+          : OperationArea.fromJson(
+              json['operation_area'] as Map<String, dynamic>),
+      Specialist.fromJson(json['specialist'] as Map<String, dynamic>),
+      Maid.fromJson(json['maid'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$OrderItemsImplToJson(_$OrderItemsImpl instance) =>
+Map<String, dynamic> _$$OrderItemDetailsImplToJson(
+        _$OrderItemDetailsImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'order_id': instance.order_id,
@@ -69,5 +74,7 @@ Map<String, dynamic> _$$OrderItemsImplToJson(_$OrderItemsImpl instance) =>
       'checkout_counts': instance.checkout_counts,
       'completed_counts': instance.completed_counts,
       'service': instance.service,
-      'period': instance.period,
+      'operation_area': instance.operation_area,
+      'specialist': instance.specialist,
+      'maid': instance.maid,
     };
