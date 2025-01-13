@@ -5,12 +5,8 @@ import 'package:employee_app/utils/api.dart';
 import 'package:employee_app/utils/sharedPref.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:http/http.dart' as http;
-
-
-
 import '../error/dioErrorException.dart';
 import '../httpServic/httpException.dart';
-
 
 
 final authServiceProvider = Provider<AuthService>(

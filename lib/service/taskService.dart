@@ -26,7 +26,8 @@ class TaskService {
     final token = await SharedPref.getData(key: SharedPref.token);
 
     final response = await _dio.get(
-      'http://staging.myanants.com/api/employee/tasks',
+      // 'http://staging.myanants.com/api/employee/tasks',
+      APIURL.tasks,
       options: Options(
         headers: <String, String>{
           'Accept': 'application/json; charset=UTF-8',

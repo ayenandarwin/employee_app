@@ -47,8 +47,8 @@ mixin _$OrderItemDetails {
   int? get completed_counts => throw _privateConstructorUsedError;
   Service? get service => throw _privateConstructorUsedError;
   OperationArea? get operation_area => throw _privateConstructorUsedError;
-  Specialist get specialist => throw _privateConstructorUsedError;
-  Maid get maid => throw _privateConstructorUsedError;
+  Specialist? get specialist => throw _privateConstructorUsedError;
+  List<Maid>? get maid => throw _privateConstructorUsedError;
 
   /// Serializes this OrderItemDetails to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -94,13 +94,12 @@ abstract class $OrderItemDetailsCopyWith<$Res> {
       int? completed_counts,
       Service? service,
       OperationArea? operation_area,
-      Specialist specialist,
-      Maid maid});
+      Specialist? specialist,
+      List<Maid>? maid});
 
   $ServiceCopyWith<$Res>? get service;
   $OperationAreaCopyWith<$Res>? get operation_area;
-  $SpecialistCopyWith<$Res> get specialist;
-  $MaidCopyWith<$Res> get maid;
+  $SpecialistCopyWith<$Res>? get specialist;
 }
 
 /// @nodoc
@@ -145,8 +144,8 @@ class _$OrderItemDetailsCopyWithImpl<$Res, $Val extends OrderItemDetails>
     Object? completed_counts = freezed,
     Object? service = freezed,
     Object? operation_area = freezed,
-    Object? specialist = null,
-    Object? maid = null,
+    Object? specialist = freezed,
+    Object? maid = freezed,
   }) {
     return _then(_value.copyWith(
       id: freezed == id
@@ -257,14 +256,14 @@ class _$OrderItemDetailsCopyWithImpl<$Res, $Val extends OrderItemDetails>
           ? _value.operation_area
           : operation_area // ignore: cast_nullable_to_non_nullable
               as OperationArea?,
-      specialist: null == specialist
+      specialist: freezed == specialist
           ? _value.specialist
           : specialist // ignore: cast_nullable_to_non_nullable
-              as Specialist,
-      maid: null == maid
+              as Specialist?,
+      maid: freezed == maid
           ? _value.maid
           : maid // ignore: cast_nullable_to_non_nullable
-              as Maid,
+              as List<Maid>?,
     ) as $Val);
   }
 
@@ -300,19 +299,13 @@ class _$OrderItemDetailsCopyWithImpl<$Res, $Val extends OrderItemDetails>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $SpecialistCopyWith<$Res> get specialist {
-    return $SpecialistCopyWith<$Res>(_value.specialist, (value) {
-      return _then(_value.copyWith(specialist: value) as $Val);
-    });
-  }
+  $SpecialistCopyWith<$Res>? get specialist {
+    if (_value.specialist == null) {
+      return null;
+    }
 
-  /// Create a copy of OrderItemDetails
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $MaidCopyWith<$Res> get maid {
-    return $MaidCopyWith<$Res>(_value.maid, (value) {
-      return _then(_value.copyWith(maid: value) as $Val);
+    return $SpecialistCopyWith<$Res>(_value.specialist!, (value) {
+      return _then(_value.copyWith(specialist: value) as $Val);
     });
   }
 }
@@ -353,17 +346,15 @@ abstract class _$$OrderItemDetailsImplCopyWith<$Res>
       int? completed_counts,
       Service? service,
       OperationArea? operation_area,
-      Specialist specialist,
-      Maid maid});
+      Specialist? specialist,
+      List<Maid>? maid});
 
   @override
   $ServiceCopyWith<$Res>? get service;
   @override
   $OperationAreaCopyWith<$Res>? get operation_area;
   @override
-  $SpecialistCopyWith<$Res> get specialist;
-  @override
-  $MaidCopyWith<$Res> get maid;
+  $SpecialistCopyWith<$Res>? get specialist;
 }
 
 /// @nodoc
@@ -406,8 +397,8 @@ class __$$OrderItemDetailsImplCopyWithImpl<$Res>
     Object? completed_counts = freezed,
     Object? service = freezed,
     Object? operation_area = freezed,
-    Object? specialist = null,
-    Object? maid = null,
+    Object? specialist = freezed,
+    Object? maid = freezed,
   }) {
     return _then(_$OrderItemDetailsImpl(
       freezed == id
@@ -518,14 +509,14 @@ class __$$OrderItemDetailsImplCopyWithImpl<$Res>
           ? _value.operation_area
           : operation_area // ignore: cast_nullable_to_non_nullable
               as OperationArea?,
-      null == specialist
+      freezed == specialist
           ? _value.specialist
           : specialist // ignore: cast_nullable_to_non_nullable
-              as Specialist,
-      null == maid
-          ? _value.maid
+              as Specialist?,
+      freezed == maid
+          ? _value._maid
           : maid // ignore: cast_nullable_to_non_nullable
-              as Maid,
+              as List<Maid>?,
     ));
   }
 }
@@ -562,7 +553,8 @@ class _$OrderItemDetailsImpl implements _OrderItemDetails {
       this.service,
       this.operation_area,
       this.specialist,
-      this.maid);
+      final List<Maid>? maid)
+      : _maid = maid;
 
   factory _$OrderItemDetailsImpl.fromJson(Map<String, dynamic> json) =>
       _$$OrderItemDetailsImplFromJson(json);
@@ -622,9 +614,16 @@ class _$OrderItemDetailsImpl implements _OrderItemDetails {
   @override
   final OperationArea? operation_area;
   @override
-  final Specialist specialist;
+  final Specialist? specialist;
+  final List<Maid>? _maid;
   @override
-  final Maid maid;
+  List<Maid>? get maid {
+    final value = _maid;
+    if (value == null) return null;
+    if (_maid is EqualUnmodifiableListView) return _maid;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
 
   @override
   String toString() {
@@ -689,7 +688,7 @@ class _$OrderItemDetailsImpl implements _OrderItemDetails {
                 other.operation_area == operation_area) &&
             (identical(other.specialist, specialist) ||
                 other.specialist == specialist) &&
-            (identical(other.maid, maid) || other.maid == maid));
+            const DeepCollectionEquality().equals(other._maid, _maid));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -724,7 +723,7 @@ class _$OrderItemDetailsImpl implements _OrderItemDetails {
         service,
         operation_area,
         specialist,
-        maid
+        const DeepCollectionEquality().hash(_maid)
       ]);
 
   /// Create a copy of OrderItemDetails
@@ -773,8 +772,8 @@ abstract class _OrderItemDetails implements OrderItemDetails {
       final int? completed_counts,
       final Service? service,
       final OperationArea? operation_area,
-      final Specialist specialist,
-      final Maid maid) = _$OrderItemDetailsImpl;
+      final Specialist? specialist,
+      final List<Maid>? maid) = _$OrderItemDetailsImpl;
 
   factory _OrderItemDetails.fromJson(Map<String, dynamic> json) =
       _$OrderItemDetailsImpl.fromJson;
@@ -834,9 +833,9 @@ abstract class _OrderItemDetails implements OrderItemDetails {
   @override
   OperationArea? get operation_area;
   @override
-  Specialist get specialist;
+  Specialist? get specialist;
   @override
-  Maid get maid;
+  List<Maid>? get maid;
 
   /// Create a copy of OrderItemDetails
   /// with the given fields replaced by the non-null parameter values.

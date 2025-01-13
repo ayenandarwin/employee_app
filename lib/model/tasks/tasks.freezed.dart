@@ -29,8 +29,8 @@ mixin _$Tasks {
   String? get created_at => throw _privateConstructorUsedError;
   String? get updated_at => throw _privateConstructorUsedError;
   int? get service_charges => throw _privateConstructorUsedError;
-  List<OrderItems> get order_items => throw _privateConstructorUsedError;
-  Customer get customer => throw _privateConstructorUsedError;
+  List<OrderItems>? get order_items => throw _privateConstructorUsedError;
+  Customer? get customer => throw _privateConstructorUsedError;
 
   /// Serializes this Tasks to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -56,10 +56,10 @@ abstract class $TasksCopyWith<$Res> {
       String? created_at,
       String? updated_at,
       int? service_charges,
-      List<OrderItems> order_items,
-      Customer customer});
+      List<OrderItems>? order_items,
+      Customer? customer});
 
-  $CustomerCopyWith<$Res> get customer;
+  $CustomerCopyWith<$Res>? get customer;
 }
 
 /// @nodoc
@@ -86,8 +86,8 @@ class _$TasksCopyWithImpl<$Res, $Val extends Tasks>
     Object? created_at = freezed,
     Object? updated_at = freezed,
     Object? service_charges = freezed,
-    Object? order_items = null,
-    Object? customer = null,
+    Object? order_items = freezed,
+    Object? customer = freezed,
   }) {
     return _then(_value.copyWith(
       id: freezed == id
@@ -126,14 +126,14 @@ class _$TasksCopyWithImpl<$Res, $Val extends Tasks>
           ? _value.service_charges
           : service_charges // ignore: cast_nullable_to_non_nullable
               as int?,
-      order_items: null == order_items
+      order_items: freezed == order_items
           ? _value.order_items
           : order_items // ignore: cast_nullable_to_non_nullable
-              as List<OrderItems>,
-      customer: null == customer
+              as List<OrderItems>?,
+      customer: freezed == customer
           ? _value.customer
           : customer // ignore: cast_nullable_to_non_nullable
-              as Customer,
+              as Customer?,
     ) as $Val);
   }
 
@@ -141,8 +141,12 @@ class _$TasksCopyWithImpl<$Res, $Val extends Tasks>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $CustomerCopyWith<$Res> get customer {
-    return $CustomerCopyWith<$Res>(_value.customer, (value) {
+  $CustomerCopyWith<$Res>? get customer {
+    if (_value.customer == null) {
+      return null;
+    }
+
+    return $CustomerCopyWith<$Res>(_value.customer!, (value) {
       return _then(_value.copyWith(customer: value) as $Val);
     });
   }
@@ -165,11 +169,11 @@ abstract class _$$TasksImplCopyWith<$Res> implements $TasksCopyWith<$Res> {
       String? created_at,
       String? updated_at,
       int? service_charges,
-      List<OrderItems> order_items,
-      Customer customer});
+      List<OrderItems>? order_items,
+      Customer? customer});
 
   @override
-  $CustomerCopyWith<$Res> get customer;
+  $CustomerCopyWith<$Res>? get customer;
 }
 
 /// @nodoc
@@ -194,8 +198,8 @@ class __$$TasksImplCopyWithImpl<$Res>
     Object? created_at = freezed,
     Object? updated_at = freezed,
     Object? service_charges = freezed,
-    Object? order_items = null,
-    Object? customer = null,
+    Object? order_items = freezed,
+    Object? customer = freezed,
   }) {
     return _then(_$TasksImpl(
       freezed == id
@@ -234,14 +238,14 @@ class __$$TasksImplCopyWithImpl<$Res>
           ? _value.service_charges
           : service_charges // ignore: cast_nullable_to_non_nullable
               as int?,
-      null == order_items
+      freezed == order_items
           ? _value._order_items
           : order_items // ignore: cast_nullable_to_non_nullable
-              as List<OrderItems>,
-      null == customer
+              as List<OrderItems>?,
+      freezed == customer
           ? _value.customer
           : customer // ignore: cast_nullable_to_non_nullable
-              as Customer,
+              as Customer?,
     ));
   }
 }
@@ -259,7 +263,7 @@ class _$TasksImpl implements _Tasks {
       this.created_at,
       this.updated_at,
       this.service_charges,
-      final List<OrderItems> order_items,
+      final List<OrderItems>? order_items,
       this.customer)
       : _order_items = order_items;
 
@@ -284,16 +288,18 @@ class _$TasksImpl implements _Tasks {
   final String? updated_at;
   @override
   final int? service_charges;
-  final List<OrderItems> _order_items;
+  final List<OrderItems>? _order_items;
   @override
-  List<OrderItems> get order_items {
+  List<OrderItems>? get order_items {
+    final value = _order_items;
+    if (value == null) return null;
     if (_order_items is EqualUnmodifiableListView) return _order_items;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_order_items);
+    return EqualUnmodifiableListView(value);
   }
 
   @override
-  final Customer customer;
+  final Customer? customer;
 
   @override
   String toString() {
@@ -370,8 +376,8 @@ abstract class _Tasks implements Tasks {
       final String? created_at,
       final String? updated_at,
       final int? service_charges,
-      final List<OrderItems> order_items,
-      final Customer customer) = _$TasksImpl;
+      final List<OrderItems>? order_items,
+      final Customer? customer) = _$TasksImpl;
 
   factory _Tasks.fromJson(Map<String, dynamic> json) = _$TasksImpl.fromJson;
 
@@ -394,9 +400,9 @@ abstract class _Tasks implements Tasks {
   @override
   int? get service_charges;
   @override
-  List<OrderItems> get order_items;
+  List<OrderItems>? get order_items;
   @override
-  Customer get customer;
+  Customer? get customer;
 
   /// Create a copy of Tasks
   /// with the given fields replaced by the non-null parameter values.

@@ -51,8 +51,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
                         color: Colors.white),
                     child: ClipRRect(
                         borderRadius: BorderRadius.circular(100),
-                        child: Image.asset(
-                            'assets/images/photo_2025-01-06_11-54-15.jpg',
+                        child: Image.asset('assets/images/myantants_logo.jpg',
                             fit: BoxFit.cover)),
                   ),
                   title: Text(
@@ -86,8 +85,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
                         color: Colors.white),
                     child: ClipRRect(
                         borderRadius: BorderRadius.circular(100),
-                        child: Image.asset(
-                            'assets/images/photo_2025-01-06_11-54-15.jpg',
+                        child: Image.asset('assets/images/myantants_logo.jpg',
                             fit: BoxFit.cover)),
                   ),
                   title: Text(
@@ -125,8 +123,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
                         color: Colors.white),
                     child: ClipRRect(
                         borderRadius: BorderRadius.circular(100),
-                        child: Image.asset(
-                            'assets/images/photo_2025-01-06_11-54-15.jpg',
+                        child: Image.asset('assets/images/myantants_logo.jpg',
                             fit: BoxFit.cover)),
                   ),
                   title: Text(

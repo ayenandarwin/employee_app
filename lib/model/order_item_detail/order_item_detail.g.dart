@@ -41,8 +41,12 @@ _$OrderItemDetailsImpl _$$OrderItemDetailsImplFromJson(
           ? null
           : OperationArea.fromJson(
               json['operation_area'] as Map<String, dynamic>),
-      Specialist.fromJson(json['specialist'] as Map<String, dynamic>),
-      Maid.fromJson(json['maid'] as Map<String, dynamic>),
+      json['specialist'] == null
+          ? null
+          : Specialist.fromJson(json['specialist'] as Map<String, dynamic>),
+      (json['maid'] as List<dynamic>?)
+          ?.map((e) => Maid.fromJson(e as Map<String, dynamic>))
+          .toList(),
     );
 
 Map<String, dynamic> _$$OrderItemDetailsImplToJson(

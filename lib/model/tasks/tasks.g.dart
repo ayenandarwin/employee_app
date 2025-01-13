@@ -16,10 +16,12 @@ _$TasksImpl _$$TasksImplFromJson(Map<String, dynamic> json) => _$TasksImpl(
       json['created_at'] as String?,
       json['updated_at'] as String?,
       (json['service_charges'] as num?)?.toInt(),
-      (json['order_items'] as List<dynamic>)
-          .map((e) => OrderItems.fromJson(e as Map<String, dynamic>))
+      (json['order_items'] as List<dynamic>?)
+          ?.map((e) => OrderItems.fromJson(e as Map<String, dynamic>))
           .toList(),
-      Customer.fromJson(json['customer'] as Map<String, dynamic>),
+      json['customer'] == null
+          ? null
+          : Customer.fromJson(json['customer'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$TasksImplToJson(_$TasksImpl instance) =>

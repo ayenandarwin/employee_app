@@ -16,8 +16,8 @@ class Tasks with _$Tasks {
     String? created_at,
     String? updated_at,
     int? service_charges,
-    List<OrderItems> order_items,
-    Customer customer,
+    List<OrderItems>? order_items,
+    Customer? customer,
 
      
 

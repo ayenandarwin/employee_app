@@ -6,9 +6,9 @@ import 'package:get/get.dart';
 
 void main() {
   runApp(ProviderScope(
+    
     child: MyApp(),
   ));
-//  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -21,11 +21,11 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        // colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         colorScheme: ColorScheme.fromSeed(seedColor: ColorsPalette.mainColor),
         useMaterial3: true,
       ),
       home: const SplashScreen(),
+      
     );
   }
 }

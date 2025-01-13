@@ -1,7 +1,9 @@
 import 'package:employee_app/controller/naviController.dart';
+import 'package:employee_app/page/eg1.dart';
 import 'package:employee_app/page/home.dart';
 import 'package:employee_app/page/leaves.dart';
-import 'package:employee_app/page/okkkk.dart';
+import 'package:employee_app/page/homeOrderScreen.dart';
+import 'package:employee_app/page/orderExample.dart';
 import 'package:employee_app/page/profileScreen.dart';
 import 'package:employee_app/utils/colors.dart';
 import 'package:employee_app/utils/global.dart';
@@ -132,17 +134,17 @@ class _NaviScreenState extends State<NaviScreen> {
       body: Obx(() => IndexedStack(
             index: naviController.currentIndex.value,
             children: [
-              HomeScreen(),
-              //HomeScreen(),
+              // HomeScreen(),
+              //ExampleOne(),
+
+              OrderExampleScreen(),
+              //HomeOrderScreen(),
               LeavesScreen(),
-              Profilescreen(),
+              ProfileScreen(),
 
               // ExampleScreen(),
 
-              // TransferScreen(),
-              // Setting()
-              // Profile()
-              // Global.isLogIn ? ProfileScreen() : LoginScreen(),
+              
             ],
           )),
     ));

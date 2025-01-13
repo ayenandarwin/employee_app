@@ -1,4 +1,5 @@
 import 'package:employee_app/model/customer/customer.dart';
+import 'package:employee_app/model/customerDetail/customerDetail.dart';
 import 'package:employee_app/model/order_item_detail/order_item_detail.dart';
 import 'package:employee_app/model/order_items/order_items.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -18,7 +19,7 @@ class TaskDetails with _$TaskDetails {
     String? updated_at,
     int? service_charges,
     List<OrderItemDetails> order_items,
-    Customer customer,
+    CustomerDetails customer,
 
      
 

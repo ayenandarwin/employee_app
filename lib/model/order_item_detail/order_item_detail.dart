@@ -37,14 +37,11 @@ class OrderItemDetails with _$OrderItemDetails {
     int? completed_counts,
     Service? service,
     OperationArea? operation_area,
-    Specialist specialist,
-    Maid maid,
-
-
-
+    Specialist? specialist,
+    List<Maid>? maid,
   ) = _OrderItemDetails;
-  factory OrderItemDetails.fromJson(Map<String, dynamic> json) => _$OrderItemDetailsFromJson(json);
-
+  factory OrderItemDetails.fromJson(Map<String, dynamic> json) =>
+      _$OrderItemDetailsFromJson(json);
 }
 /*
 

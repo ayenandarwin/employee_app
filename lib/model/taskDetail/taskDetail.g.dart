@@ -20,7 +20,7 @@ _$TaskDetailsImpl _$$TaskDetailsImplFromJson(Map<String, dynamic> json) =>
       (json['order_items'] as List<dynamic>)
           .map((e) => OrderItemDetails.fromJson(e as Map<String, dynamic>))
           .toList(),
-      Customer.fromJson(json['customer'] as Map<String, dynamic>),
+      CustomerDetails.fromJson(json['customer'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$TaskDetailsImplToJson(_$TaskDetailsImpl instance) =>

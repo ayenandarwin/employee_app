@@ -14,7 +14,8 @@ class APIURL {
 
   //Auth
   static const String loginUrl = "$mainUrl/employee/login";
-  static const String tasks = "http://staging.myanants.com/api/employee/tasks";
+  static const String tasks = "$mainUrl/employee/tasks";
+  static const String taskDetails = "$mainUrl/employee/tasks";
 
   static const String profileUrl = "$mainUrl/v1/profile";
   static const String passwordResetUrl = "$mainUrl/delimens/changepassword";

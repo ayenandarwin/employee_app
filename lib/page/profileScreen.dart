@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:employee_app/page/profileSetting.dart';
 import 'package:employee_app/utils/colors.dart';
 import 'package:employee_app/utils/styles.dart';
 import 'package:flutter/material.dart';
@@ -7,14 +8,14 @@ import 'package:get/get.dart';
 import 'package:get/get_navigation/src/snackbar/snackbar.dart';
 import 'package:image_picker/image_picker.dart';
 
-class Profilescreen extends StatefulWidget {
-  const Profilescreen({super.key});
+class ProfileScreen extends StatefulWidget {
+  const ProfileScreen({super.key});
 
   @override
-  State<Profilescreen> createState() => _ProfilescreenState();
+  State<ProfileScreen> createState() => _ProfileScreenState();
 }
 
-class _ProfilescreenState extends State<Profilescreen> {
+class _ProfileScreenState extends State<ProfileScreen> {
   var selectedImagePath = "";
   var selectedgallery = "";
   var selectedImageAvatarPath = '';
@@ -101,8 +102,10 @@ class _ProfilescreenState extends State<Profilescreen> {
                                                 )),
                                               )
                                             : Image.asset(
-                                                'assets/images/camera1.png',
-                                                color: ColorsPalette.mainColor,
+                                                // 'assets/images/camera1.png',
+                                                'assets/images/camera.png',
+                                                // color: ColorsPalette.mainColor,
+
                                                 width: 70,
                                                 height: 70,
                                               ),
@@ -148,8 +151,10 @@ class _ProfilescreenState extends State<Profilescreen> {
                                                 )),
                                               )
                                             : Image.asset(
-                                                'assets/images/image-gallery.png',
-                                                color: ColorsPalette.mainColor,
+                                                // 'assets/images/image-gallery.png',
+                                                'assets/images/gallery.png',
+                                                //color: ColorsPalette.mainColor,
+
                                                 width: 70,
                                                 height: 70,
                                               ),
@@ -183,8 +188,7 @@ class _ProfilescreenState extends State<Profilescreen> {
                       color: Colors.white),
                   child: ClipRRect(
                       borderRadius: BorderRadius.circular(100),
-                      child: Image.asset(
-                          'assets/images/photo_2025-01-06_11-54-15.jpg',
+                      child: Image.asset('assets/images/myantants_logo.jpg',
                           fit: BoxFit.cover)),
                 ),
               ),
@@ -309,12 +313,17 @@ class _ProfilescreenState extends State<Profilescreen> {
             SizedBox(
               height: 16,
             ),
-            Card(
-              child: ListTile(
-                leading: Icon(Icons.person_outline),
-                title: Text(
-                  'Profile Settings',
-                  style: Styles.subtitleStyle,
+            InkWell(
+              onTap: () {
+                // Get.to(() => ProfileSetting());
+              },
+              child: Card(
+                child: ListTile(
+                  leading: Icon(Icons.person_outline),
+                  title: Text(
+                    'Profile Settings',
+                    style: Styles.subtitleStyle,
+                  ),
                 ),
               ),
             ),

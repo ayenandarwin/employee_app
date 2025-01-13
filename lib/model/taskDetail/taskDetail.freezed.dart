@@ -30,7 +30,7 @@ mixin _$TaskDetails {
   String? get updated_at => throw _privateConstructorUsedError;
   int? get service_charges => throw _privateConstructorUsedError;
   List<OrderItemDetails> get order_items => throw _privateConstructorUsedError;
-  Customer get customer => throw _privateConstructorUsedError;
+  CustomerDetails get customer => throw _privateConstructorUsedError;
 
   /// Serializes this TaskDetails to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -59,9 +59,9 @@ abstract class $TaskDetailsCopyWith<$Res> {
       String? updated_at,
       int? service_charges,
       List<OrderItemDetails> order_items,
-      Customer customer});
+      CustomerDetails customer});
 
-  $CustomerCopyWith<$Res> get customer;
+  $CustomerDetailsCopyWith<$Res> get customer;
 }
 
 /// @nodoc
@@ -135,7 +135,7 @@ class _$TaskDetailsCopyWithImpl<$Res, $Val extends TaskDetails>
       customer: null == customer
           ? _value.customer
           : customer // ignore: cast_nullable_to_non_nullable
-              as Customer,
+              as CustomerDetails,
     ) as $Val);
   }
 
@@ -143,8 +143,8 @@ class _$TaskDetailsCopyWithImpl<$Res, $Val extends TaskDetails>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $CustomerCopyWith<$Res> get customer {
-    return $CustomerCopyWith<$Res>(_value.customer, (value) {
+  $CustomerDetailsCopyWith<$Res> get customer {
+    return $CustomerDetailsCopyWith<$Res>(_value.customer, (value) {
       return _then(_value.copyWith(customer: value) as $Val);
     });
   }
@@ -169,10 +169,10 @@ abstract class _$$TaskDetailsImplCopyWith<$Res>
       String? updated_at,
       int? service_charges,
       List<OrderItemDetails> order_items,
-      Customer customer});
+      CustomerDetails customer});
 
   @override
-  $CustomerCopyWith<$Res> get customer;
+  $CustomerDetailsCopyWith<$Res> get customer;
 }
 
 /// @nodoc
@@ -244,7 +244,7 @@ class __$$TaskDetailsImplCopyWithImpl<$Res>
       null == customer
           ? _value.customer
           : customer // ignore: cast_nullable_to_non_nullable
-              as Customer,
+              as CustomerDetails,
     ));
   }
 }
@@ -296,7 +296,7 @@ class _$TaskDetailsImpl implements _TaskDetails {
   }
 
   @override
-  final Customer customer;
+  final CustomerDetails customer;
 
   @override
   String toString() {
@@ -374,7 +374,7 @@ abstract class _TaskDetails implements TaskDetails {
       final String? updated_at,
       final int? service_charges,
       final List<OrderItemDetails> order_items,
-      final Customer customer) = _$TaskDetailsImpl;
+      final CustomerDetails customer) = _$TaskDetailsImpl;
 
   factory _TaskDetails.fromJson(Map<String, dynamic> json) =
       _$TaskDetailsImpl.fromJson;
@@ -400,7 +400,7 @@ abstract class _TaskDetails implements TaskDetails {
   @override
   List<OrderItemDetails> get order_items;
   @override
-  Customer get customer;
+  CustomerDetails get customer;
 
   /// Create a copy of TaskDetails
   /// with the given fields replaced by the non-null parameter values.

@@ -39,7 +39,7 @@ class _LoginScreenState extends State<LoginScreen> {
     // TODO: implement initState
     _isObscured = true;
     super.initState();
-    checkRememberUser();
+    //checkRememberUser();
   }
 
   checkRememberUser() async {

@@ -35,7 +35,7 @@ class _SplashScreenState extends State<SplashScreen> {
               // ),
               Center(
                 child: Image.asset(
-                  'assets/images/photo_2025-01-06_11-54-08.jpg',
+                  'assets/images/myanants_text_logo.jpg',
                   width: 150,
                   height: 150,
                   // scale: 0.1,
